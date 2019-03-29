@@ -1,0 +1,38 @@
+﻿@model CoreGbMSE.Data.Filial
+
+@{
+    ViewData["Title"] = "Филиал";
+}
+
+<div class="row">
+    <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">@ViewData["Title"]</h3>
+                </div>
+                <div class="box-body">
+                    <div class="form-group">
+                        <b>@Html.DisplayNameFor(model => model.Name): </b>
+                        @Html.DisplayFor(model => model.Name)
+                    </div>
+                    <div class="form-group">
+                        <b>@Html.DisplayNameFor(model => model.Adress): </b>
+                        @Html.DisplayFor(model => model.Adress)
+                    </div>
+                    <div class="form-group">
+                        <b>@Html.DisplayNameFor(model => model.Telephone): </b>
+                        @Html.DisplayFor(model => model.Telephone)
+                    </div>
+
+
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <a href="@Url.Action("Index","Filials")" class="btn btn-primary pull-right">Назад к списку</a>
+                </div>
+            </div>
+            <!-- /.box -->
+
+    </div>
+</div>
+

@@ -1,0 +1,60 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+    ViewData["Title"] = "ВХОД";
+}
+
+<p class="login-box-msg">Войдите, чтобы начать работу</p>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group has-feedback">
+        <input type="email" asp-for="Email" class="form-control" placeholder="Email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <input type="password" asp-for="Password" class="form-control" placeholder="Пароль">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="checkbox icheck">
+                <label>
+                    <input asp-for="RememberMe" type="checkbox"> Запомнить
+                </label>
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Вход</button>
+        </div>
+        <!-- /.col -->
+    </div>
+</form>
+@*<div class="social-auth-links text-center">
+        <p>- ИЛИ -</p>
+        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+            <i class="fa fa-facebook"></i> Войти через
+            Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+            <i class="fa fa-google-plus"></i>  Войти через
+            Google+
+        </a>
+    </div>*@
+<!-- /.social-auth-links -->
+<a href="#">Забыл пароль</a><br>
+<a href="register" class="text-center">Регистрация</a>
+
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+    ViewData["Title"] = "Доступ запрещен";
+}
+
+<header class="text-center">
+    <br /><br /><br />
+    <h1 class="text-danger">@ViewData["Title"]</h1>
+    <p class="text-danger">У вас нет доступа к этому ресурсу.</p>
+    <i class="fa fa-lock fa-5x"></i>
+    <br /><br /><br />
+    <div class="row text-center">
+        <a href="~/">На главную страницу</a>
+    </div>
+</header>

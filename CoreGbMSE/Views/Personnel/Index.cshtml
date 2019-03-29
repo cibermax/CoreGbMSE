@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CoreGbMSE.Models.Personnel>
+
+@{
+    ViewData["Title"] = "Создать";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h4>Index</h4>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<table class="table table-bordered table-striped dataTable" role="grid">
+    <thead>
+        <tr role="row">
+                <th class="sorting">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th class="sorting">
+                    @Html.DisplayNameFor(model => model.Doljnost)
+                </th>
+                <th class="sorting">
+                    @Html.DisplayNameFor(model => model.Telephone)
+                </th>
+                <th class="sorting">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doljnost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PersonnelId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonnelId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PersonnelId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
