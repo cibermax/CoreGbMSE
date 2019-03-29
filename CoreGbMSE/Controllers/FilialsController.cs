@@ -45,6 +45,9 @@ namespace CoreGbMSE.Controllers
                 // TODO: Add insert logic here
                 if(ModelState.IsValid)
                 {
+
+            
+                   ////65789908765
                     _context.Filials.Add(model);
                     _context.SaveChanges();
                 }
