@@ -36,5 +36,7 @@ namespace CoreGbMSE.Models
         [Display(Name = "Сайт")]
         [DataType(DataType.Url)]
         public string WebUrl { get; set; }
+
+
     }
 }
