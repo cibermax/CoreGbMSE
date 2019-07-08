@@ -38,16 +38,25 @@
 
     <link href="~/css/adminlte-custom.css" rel="stylesheet" />
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini bg">
 
-    <section class="content">
-        <!-- Main row -->
+    <section class="content content-wrapper">
         <div class="row">
-            <div class="col-md-12">
-                @RenderBody()
+            <div class="col-md-10 col-md-offset-1">
+                <h1 class="text-primary">ГБ МСЕ по Мурманской области</h1>
             </div>
         </div>
-        <!-- /.row (main row) -->
+            <!-- Main row -->
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="box box-info">
+                        <br />
+                        @RenderBody()
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.row (main row) -->
     </section>
 
     <!-- ./wrapper -->

@@ -2,6 +2,30 @@
     <li class="header">НАВИГАЦИЯ</li>
     <li class="active treeview">
         <a href="#">
+            <i class="fa fa-circle-o text-danger"></i> <span>ЗАЯВКИ</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a asp-controller="Home" asp-action="ZayavkaItoAdd"><i class="fa fa-file-text-o"></i>Заявка в ИТО</a></li>
+            <li><a asp-controller="Home" asp-action="ZayavkaItoAdd"><i class="fa fa-file-text-o"></i> Заявка на картридж</a></li>
+            <li><a asp-controller="Home" asp-action="ZayavkaItoAdd"><i class="fa fa-file-text-o"></i> Заявка на Транспорт</a></li>
+        </ul>
+    </li>
+    <li class="active treeview">
+        <a href="#">
+            <i class="fa fa-circle-o text-danger"></i> <span>ОБЩИЕ</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a asp-controller="Home" asp-action="ZayavkaItoAdd"><i class="fa fa-file-text-o"></i>Контакты</a></li>
+        </ul>
+    </li>
+    <li class="active treeview">
+        <a href="#">
             <i class="fa fa-circle-o text-green"></i> <span>ИТО отдел</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -9,6 +33,8 @@
         </a>
         <ul class="treeview-menu">
             <li class="active"><a asp-controller="ITO" asp-action="Index"><i class="fa fa-dashboard"></i> Состояние</a></li>
+            <li><a asp-controller="ITO" asp-action="ListZayavka"><i class="fa fa-database"></i> Заявки</a></li>
+            <li><a asp-controller="ITO" asp-action="Index"><i class="fa fa-database"></i> Заявки</a></li>
             @*<li><a href="index2.html"><i class="fa fa-circle-o"></i> Состояние v2</a></li>*@
         </ul>
     </li>
@@ -25,8 +51,8 @@
             <li><a asp-controller="Otdel" asp-action="Index"><i class="fa fa-bank"></i> Отделы</a></li>
             <li><a asp-controller="Personnel" asp-action="Index"><i class="fa fa-users"></i> Сотрудники</a></li>
             <li><a href="index.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-        <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-        <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+            <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
+            <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
         </ul>
     </li>
     @*<li class="treeview">
@@ -85,30 +111,30 @@
             </ul>
         </li>*@
     @*<li class="treeview">
-        <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-        </ul>
-    </li>*@
+            <a href="#">
+                <i class="fa fa-edit"></i> <span>Forms</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+                <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+                <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+            </ul>
+        </li>*@
     @*<li class="treeview">
-        <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-        </ul>
-    </li>*@
+            <a href="#">
+                <i class="fa fa-table"></i> <span>Tables</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+            </ul>
+        </li>*@
     @*<li>
             <a href="pages/calendar.html">
                 <i class="fa fa-calendar"></i> <span>Calendar</span>
@@ -183,8 +209,8 @@
             </ul>
         </li>*@
     @*<li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-    <li class="header">МЕТКИ</li>
-    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-    <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>*@
+        <li class="header">МЕТКИ</li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>*@
 </ul>

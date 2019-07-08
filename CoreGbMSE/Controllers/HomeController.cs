@@ -2,11 +2,21 @@
 using Microsoft.AspNetCore.Mvc;
 using CoreGbMSE.Models;
 using CoreGbMSE.Data;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace CoreGbMSE.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly CoreGbMseDbContext _context;
+
+        public HomeController(CoreGbMseDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -15,6 +25,8 @@ namespace CoreGbMSE.Controllers
 
         public IActionResult ZayavkaItoAdd()
         {
+            ViewBag.otdels = new SelectList(_context.Otdels, "OtdelId", "Name");
+            ViewBag.taskType = new SelectList(_context.TaskType, "TaskTypeId", "Name");
 
             return View();
         }
@@ -22,6 +34,21 @@ namespace CoreGbMSE.Controllers
         [HttpPost]
         public IActionResult ZayavkaItoAdd(TaskWork Task)
         {
+            ViewBag.otdels = new SelectList(_context.Otdels, "OtdelId", "Name");
+            ViewBag.taskType = new SelectList(_context.TaskType, "TaskTypeId", "Name");
+            Task.DateAdd = DateTime.Now;
+
+            Task.Otdel = _context.Otdels.Where(x => x.OtdelId == Task.Otdel.OtdelId).Single();
+            Task.TaskType = _context.TaskType.Where(x => x.TaskTypeId == Task.TaskType.TaskTypeId).Single();
+
+            //if (ModelState.IsValid)
+            //{
+
+            Task.Status = Status.New;
+            _context.TaskWork.Add(Task);
+            _context.SaveChanges();
+            //}
+
             return View();
         }
 

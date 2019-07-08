@@ -14,5 +14,7 @@ namespace CoreGbMSE.Data
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Otdel> Otdels { get; set; }
         public virtual DbSet<TaskWork> TaskWork { get; set; }
+        public virtual DbSet<TaskType> TaskType { get; set; }
+
     }
 }

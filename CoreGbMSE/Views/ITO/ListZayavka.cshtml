@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CoreGbMSE.Models.TaskWork>
+
+@{
+    ViewData["Title"] = "Список Заявок";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">ЗАЯВКИ ИТО ОТДЕЛА</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DateAdd)</th>
+                    <th>@Html.DisplayNameFor(model => model.Otdel)</th>
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th> @Html.DisplayNameFor(model => model.Srochno)</th>
+                    <th> @Html.DisplayNameFor(model => model.Status)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.DateAdd)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Otdel.OtdelId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Srochno)</td>
+                    <td> @Html.DisplayFor(modelItem => item.Status)</td>
+                </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DateAdd)</th>
+                    <th>@Html.DisplayNameFor(model => model.Otdel)</th>
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th> @Html.DisplayNameFor(model => model.Srochno)</th>
+                    <th> @Html.DisplayNameFor(model => model.Status)</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+
+@*<a asp-action="Edit" asp-route-id="@item.TaskWorkId">Edit</a> |
+<a asp-action="Details" asp-route-id="@item.TaskWorkId">Details</a> |
+<a asp-action="Delete" asp-route-id="@item.TaskWorkId">Delete</a>*@
