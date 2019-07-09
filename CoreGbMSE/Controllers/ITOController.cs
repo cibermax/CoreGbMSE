@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CoreGbMSE.Controllers
 {
@@ -21,10 +22,7 @@ namespace CoreGbMSE.Controllers
         }
 
 
-        public ActionResult ListZayavka()
-        {
-            return View(_context.TaskWork.Include(x=>x.Otdel).ToList());
-        }
+        public IActionResult ListZayavka() => View(_context.TaskWork.Include(x => x.Otdel).ToListAsync());
 
 
     }
