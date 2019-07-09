@@ -15,6 +15,7 @@
             <thead>
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.DateAdd)</th>
+                    <th>@Html.DisplayNameFor(model => model.TaskType)</th>
                     <th>@Html.DisplayNameFor(model => model.Otdel)</th>
                     <th>@Html.DisplayNameFor(model => model.FullName)</th>
                     <th> @Html.DisplayNameFor(model => model.Srochno)</th>
@@ -27,6 +28,7 @@
                 {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.DateAdd)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TaskType.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.Otdel.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.FullName)</td>
                     <td>@Html.DisplayFor(modelItem => item.Srochno)</td>

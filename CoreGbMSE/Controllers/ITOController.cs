@@ -24,7 +24,7 @@ namespace CoreGbMSE.Controllers
 
         public async Task<IActionResult> ListZayavka()
         {
-            return View(await  _context.TaskWork.Include(x=>x.Otdel).ToListAsync());
+            return View(await  _context.TaskWork.Include(x=>x.Otdel).Include(z=>z.TaskType).ToListAsync());
         }
 
 
