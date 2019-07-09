@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Filials\**" />
-    <Content Remove="Views\Filials\**" />
-    <EmbeddedResource Remove="Views\Filials\**" />
-    <None Remove="Views\Filials\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="wwwroot\bower_components\bootstrap-colorpicker\.bower.json" />
     <Content Include="wwwroot\bower_components\bootstrap-colorpicker\bower.json" />
     <Content Include="wwwroot\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
@@ -2010,6 +2003,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Filials\Create.cshtml" />
+    <None Include="Views\Filials\Delete.cshtml" />
+    <None Include="Views\Filials\Details.cshtml" />
+    <None Include="Views\Filials\Edit.cshtml" />
+    <None Include="Views\Filials\Index.cshtml" />
     <None Include="wwwroot\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css.map" />
     <None Include="wwwroot\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css.map" />
     <None Include="wwwroot\bower_components\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.js" />
