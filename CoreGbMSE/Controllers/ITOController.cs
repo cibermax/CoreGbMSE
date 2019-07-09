@@ -1,5 +1,6 @@
 ﻿using CoreGbMSE.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace CoreGbMSE.Controllers
@@ -22,7 +23,7 @@ namespace CoreGbMSE.Controllers
 
         public ActionResult ListZayavka()
         {
-            return View(_context.TaskWork.ToList());
+            return View(_context.TaskWork.Include(x=>x.Otdel).ToList());
         }
 
 
