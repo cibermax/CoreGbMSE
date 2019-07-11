@@ -35,7 +35,7 @@
                     <td> @Html.DisplayFor(modelItem => item.Status)</td>
                     <td style="width:140px;">
                         <div class="btn-group">
-                            <button class="btn btn-info" type="button">Подробно</button>
+                            <a class="btn btn-info" asp-action="DetailTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">Подробно</a>
                             <button class="btn btn-info dropdown-toggle" aria-expanded="false" type="button" data-toggle="dropdown">
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
@@ -59,6 +59,7 @@
                     <th>@Html.DisplayNameFor(model => model.FullName)</th>
                     <th> @Html.DisplayNameFor(model => model.Srochno)</th>
                     <th> @Html.DisplayNameFor(model => model.Status)</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </tfoot>

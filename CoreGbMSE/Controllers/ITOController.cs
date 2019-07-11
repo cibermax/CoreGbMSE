@@ -27,6 +27,11 @@ namespace CoreGbMSE.Controllers
             return View(await  _context.TaskWork.Include(x=>x.Otdel).Include(z=>z.TaskType).ToListAsync());
         }
 
+        //[Route("DetailTask/{id:int}")]
+        public async Task<IActionResult> DetailTask(int id)
+        {
+            return View(await _context.TaskWork.Where(x => x.TaskWorkId == id).Include(z => z.Otdel).Include(y => y.TaskType).SingleAsync());
+        }
 
     }
 }

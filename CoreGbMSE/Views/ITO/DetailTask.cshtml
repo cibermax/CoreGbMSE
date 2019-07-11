@@ -1,0 +1,55 @@
+﻿@model CoreGbMSE.Models.TaskWork
+
+@{
+    ViewData["Title"] = "DetailTask";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h2>DetailTask</h2>
+
+<div>
+    <h4>TaskWork</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateAdd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Zayavka)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Zayavka)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Srochno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Srochno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TaskWorkId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
