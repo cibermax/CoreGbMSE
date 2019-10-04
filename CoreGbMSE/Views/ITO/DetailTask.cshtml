@@ -15,6 +15,10 @@
 
     <div class="box-body">
         <div class="form-group">
+            @Html.DisplayNameFor(model => model.TaskWorkId):
+            @Html.DisplayFor(model => model.TaskWorkId)
+        </div>
+        <div class="form-group">
             @Html.DisplayNameFor(model => model.DateAdd):
             @Html.DisplayFor(model => model.DateAdd)
         </div>
@@ -41,11 +45,11 @@
 
     </div>
     <!-- /.box-body --> 
-    <form role="form">
-        <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>&nbsp;<a class="btn btn-primary" asp-action="ListZayavka">Назад к списку</a>
-        </div>
-    </form>
+    @*<form role="form">*@
+    <div class="box-footer text-right">
+        <a class="btn btn-success" asp-controller="ITO" asp-action="FinishTask" asp-route-id="@Model.TaskWorkId">Выполненно</a>&nbsp;<a class="btn btn-danger" asp-action="CancelTask" asp-controller="ITO" asp-route-id="@Model.TaskWorkId">Отменить</a>&nbsp;<a class="btn btn-primary">В работе</a>&nbsp;<a class="btn btn-primary" asp-action="ListZayavka">Назад к списку</a>
+    </div>
+    @*</form>*@
 </div>
 <!-- /.box -->
 

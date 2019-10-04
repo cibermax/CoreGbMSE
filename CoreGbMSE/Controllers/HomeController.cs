@@ -67,11 +67,6 @@ namespace CoreGbMSE.Controllers
             return View();
         }
 
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
         // GET: Filials/Create
         public ActionResult Create()
         {
@@ -99,5 +94,17 @@ namespace CoreGbMSE.Controllers
                 return View("Error");
             }
         }
+
+
+        public IActionResult Succes()
+        {
+            return View();
+        }
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
     }
 }

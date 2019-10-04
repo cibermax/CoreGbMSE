@@ -12,9 +12,10 @@ using System;
 namespace CoreGbMSE.Migrations
 {
     [DbContext(typeof(CoreGbMseDbContext))]
-    partial class CoreGbMseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190725100435_TaskStatu")]
+    partial class TaskStatu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

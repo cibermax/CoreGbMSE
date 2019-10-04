@@ -49,6 +49,9 @@ namespace CoreGbMSE.Models
         [Display(Name ="Статус")]
         public Status Status { get; set; }
 
+        [Display(Name = "Выполененна")]
+        public DateTime DateFinish { get; set; }
+
     }
 
     public enum Status

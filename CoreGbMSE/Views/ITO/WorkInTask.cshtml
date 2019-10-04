@@ -1,0 +1,111 @@
+﻿@model CoreGbMSE.Models.TaskWork
+
+@{
+    ViewData["Title"] = "WorkInTask";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Задача</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+
+    <div class="box-body">
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.TaskWorkId):
+            @Html.DisplayFor(model => model.TaskWorkId)
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.DateAdd):
+            @Html.DisplayFor(model => model.DateAdd)
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.FullName):
+            @Html.DisplayFor(model => model.FullName)
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Telephone):
+            @Html.DisplayFor(model => model.Telephone)
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Zayavka):<br />
+            @Html.DisplayFor(model => model.Zayavka)
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Srochno)
+            @Html.DisplayFor(model => model.Srochno)
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Status):
+            @Html.DisplayFor(model => model.Status)
+        </div>
+
+    </div>
+    <!-- /.box-body -->
+    @*<form role="form">*@
+    <div class="box-footer text-right">
+        <a class="btn btn-success" asp-controller="ITO" asp-action="FinishTask" asp-route-id="@Model.TaskWorkId">Выполненно</a>&nbsp;<a class="btn btn-danger" asp-action="CancelTask" asp-controller="ITO" asp-route-id="@Model.TaskWorkId">Отменить</a>&nbsp;<a class="btn btn-primary">В работе</a>&nbsp;<a class="btn btn-primary" asp-action="ListZayavka">Назад к списку</a>
+    </div>
+    @*</form>*@
+</div>
+<!-- /.box -->
+@*<h2>WorkInTask</h2>
+
+    <h4>TaskWork</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="WorkInTask">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TaskWorkId" />
+                <div class="form-group">
+                    <label asp-for="DateAdd" class="control-label"></label>
+                    <input asp-for="DateAdd" class="form-control" />
+                    <span asp-validation-for="DateAdd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telephone" class="control-label"></label>
+                    <input asp-for="Telephone" class="form-control" />
+                    <span asp-validation-for="Telephone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Zayavka" class="control-label"></label>
+                    <input asp-for="Zayavka" class="form-control" />
+                    <span asp-validation-for="Zayavka" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="Srochno" /> @Html.DisplayNameFor(model => model.Srochno)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <select asp-for="Status" class="form-control"></select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateFinish" class="control-label"></label>
+                    <input asp-for="DateFinish" class="form-control" />
+                    <span asp-validation-for="DateFinish" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+

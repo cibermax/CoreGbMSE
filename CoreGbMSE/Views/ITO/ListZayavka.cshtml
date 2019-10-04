@@ -9,6 +9,9 @@
     <div class="box-header">
         <h3 class="box-title">ЗАЯВКИ ИТО ОТДЕЛА</h3>
     </div>
+    <div>
+
+    </div>
     <!-- /.box-header -->
     <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
@@ -26,30 +29,62 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.DateAdd)</td>
-                    <td>@Html.DisplayFor(modelItem => item.TaskType.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Otdel.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => item.FullName)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Srochno)</td>
-                    <td> @Html.DisplayFor(modelItem => item.Status)</td>
-                    <td style="width:140px;">
-                        <div class="btn-group">
-                            <a class="btn btn-info" asp-action="DetailTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">Подробно</a>
-                            <button class="btn btn-info dropdown-toggle" aria-expanded="false" type="button" data-toggle="dropdown">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Выполненно</a></li>
-                                <li><a href="#">Отказать</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
+                    @if (item.Status == Status.Finish)
+                    {
+                        <tr class="label-success">
+                            <td>@Html.DisplayFor(modelItem => item.DateAdd)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TaskType.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Otdel.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Srochno)</td>
+                            <td> @Html.DisplayFor(modelItem => item.Status)</td>
+                            <td style="width:140px;">
+                                <div class="btn-group">
+                                    <a class="btn btn-info" asp-action="DetailTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">Подробно</a>
+                                    <button class="btn btn-info dropdown-toggle" aria-expanded="false" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a asp-action="FinishTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">Выполненно</a></li>
+                                        <li><a asp-action="CancelTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">Отменить</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.DateAdd)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TaskType.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Otdel.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Srochno)</td>
+                            <td> @Html.DisplayFor(modelItem => item.Status)</td>
+                            <td style="width:140px;">
+                                <div class="btn-group">
+                                    <a class="btn btn-info" asp-action="DetailTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">Подробно</a>
+                                    <button class="btn btn-info dropdown-toggle" aria-expanded="false" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a asp-action="WorkInTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">В работе</a></li>
+                                        <li><a asp-action="FinishTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">Выполненно</a></li>
+                                        <li><a asp-action="CancelTask" asp-controller="ITO" asp-route-id="@item.TaskWorkId">Отменить</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
                 }
             </tbody>
             <tfoot>
