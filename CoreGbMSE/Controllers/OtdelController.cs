@@ -7,9 +7,9 @@ namespace CoreGbMSE.Controllers
 {
     public class OtdelController : Controller
     {
-        private readonly CoreGbMseDbContext _context;
+        private readonly CmsDbContext _context;
 
-        public OtdelController(CoreGbMseDbContext context)
+        public OtdelController(CmsDbContext context)
         {
             _context = context;
         }

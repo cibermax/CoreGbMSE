@@ -11,7 +11,7 @@ using System;
 
 namespace CoreGbMSE.Migrations
 {
-    [DbContext(typeof(CoreGbMseDbContext))]
+    [DbContext(typeof(CmsDbContext))]
     partial class CoreGbMseDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

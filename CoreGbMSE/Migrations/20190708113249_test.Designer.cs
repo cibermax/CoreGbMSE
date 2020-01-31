@@ -11,7 +11,7 @@ using System;
 
 namespace CoreGbMSE.Migrations
 {
-    [DbContext(typeof(CoreGbMseDbContext))]
+    [DbContext(typeof(CmsDbContext))]
     [Migration("20190708113249_test")]
     partial class test
     {

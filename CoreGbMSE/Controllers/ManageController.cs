@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using CoreGbMSE.Models;
 using CoreGbMSE.Models.ManageViewModels;
 using CoreGbMSE.Services;
+using WebUI.Models;
 
 namespace CoreGbMSE.Controllers
 {

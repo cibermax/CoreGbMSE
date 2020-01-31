@@ -7,9 +7,9 @@ namespace CoreGbMSE.Controllers
 {
     public class PersonnelController : Controller
     {
-        private readonly CoreGbMseDbContext _context;
+        private readonly CmsDbContext _context;
 
-        public PersonnelController(CoreGbMseDbContext context)
+        public PersonnelController(CmsDbContext context)
         {
             _context = context;
         }

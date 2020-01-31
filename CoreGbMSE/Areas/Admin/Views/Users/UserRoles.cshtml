@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model WebUI.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "РОЛИ ПОЛЬЗОВАТЕЛЯ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">@ViewData["Title"]</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form" asp-area="Admin" asp-controller="Users" asp-action="UserRoles" method="post">
+        >
+        <div class="box-body">
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.Id):&nbsp;
+                <label>@Html.DisplayFor(model => model.Id)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.UserName):&nbsp;
+                <label>@Html.DisplayFor(model => model.UserName)</label>
+            </div>
+
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.Email):&nbsp;
+                <label>@Html.DisplayFor(model => model.Email)</label>
+            </div>
+
+
+            <div class="form-group">
+                <label>РОЛИ ПОЛЬЗОВАТЕЛЯ</label>
+                <select id="roles" name="roles" class="form-control select2-hidden-accessible" multiple="multiple" data-placeholder="Роли пользователя" style="width: 100%;">
+                    @{
+
+                        var curroles = (List<IdentityRole>)ViewBag.CurrentRoles;
+
+                        foreach (var role in ViewBag.Roles)
+                        {
+                            if (curroles.Exists(x => x.Name == role.Name))
+                            {
+                                <option selected="selected">@role.Name</option>
+                            }
+                            else
+                            {
+                                <option>@role.Name</option>
+                            }
+
+                        }
+
+                    }
+                </select>
+            </div>
+
+
+
+        </div>
+        <div class="box-footer">
+            <a href="@Url.Action("Index", "Users")" class="btn btn-primary pull-right">Назад к списку</a>
+            <button style="float: right;" class="btn btn-warning margin-r-5" type="submit">Сохранить изменения</button>
+
+        </div>
+        <!-- /.box-body -->
+    </form>
+</div>
+
+@section Scripts
+    {
+
+    <!-- Select2 -->
+    <script src="~/lte/bower_components/select2/dist/js/select2.full.min.js"></script>
+
+    <script>
+
+        $(function () {
+            //Initialize Select2 Elements
+            $('#roles').select2();
+        });
+    </script>
+}

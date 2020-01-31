@@ -11,7 +11,7 @@ using System;
 
 namespace CoreGbMSE.Migrations
 {
-    [DbContext(typeof(CoreGbMseDbContext))]
+    [DbContext(typeof(CmsDbContext))]
     [Migration("20190725100435_TaskStatu")]
     partial class TaskStatu
     {

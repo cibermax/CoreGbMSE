@@ -10,9 +10,9 @@ namespace CoreGbMSE.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly CoreGbMseDbContext _context;
+        private readonly CmsDbContext _context;
 
-        public HomeController(CoreGbMseDbContext context)
+        public HomeController(CmsDbContext context)
         {
             _context = context;
         }

@@ -6,54 +6,52 @@
 @inject SignInManager<ApplicationUser> SignInManager
 
 @{
-    Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
-    ViewData["Title"] = "ВХОД";
+    ViewData["Title"] = "Вход";
+    Layout = "_LayoutNoMenu";
 }
 
-<p class="login-box-msg">Войдите, чтобы начать работу</p>
+<div class="borderbox">
+    <div class="headbox text-center">
+        <h2><i class="fa fa-sign-in" aria-hidden="true"></i> @ViewData["Title"]</h2>
+    </div>
 
-<form method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group has-feedback">
-        <input type="email" asp-for="Email" class="form-control" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        <span asp-validation-for="Email" class="text-danger"></span>
+    <div class="formbox">
+        <section>
+            <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Войти</button>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-6 pd-lr0">
+                        <a asp-action="ForgotPassword">Забыли пароль?</a>
+                    </div>
+                    <div class="text-right col-xs-6 pd-lr0">
+                        <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Зарегистрироваться</a>
+                    </div>
+                </div>
+            </form>
+        </section>
     </div>
-    <div class="form-group has-feedback">
-        <input type="password" asp-for="Password" class="form-control" placeholder="Пароль">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-    <div class="row">
-        <div class="col-xs-8">
-            <div class="checkbox icheck">
-                <label>
-                    <input asp-for="RememberMe" type="checkbox"> Запомнить
-                </label>
-            </div>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Вход</button>
-        </div>
-        <!-- /.col -->
-    </div>
-</form>
-@*<div class="social-auth-links text-center">
-        <p>- ИЛИ -</p>
-        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
-            <i class="fa fa-facebook"></i> Войти через
-            Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-social btn-google btn-flat">
-            <i class="fa fa-google-plus"></i>  Войти через
-            Google+
-        </a>
-    </div>*@
-<!-- /.social-auth-links -->
-<a href="#">Забыл пароль</a><br>
-<a href="register" class="text-center">Регистрация</a>
-
+</div>
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")

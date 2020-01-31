@@ -10,9 +10,9 @@ namespace CoreGbMSE.Controllers
 {
     public class ITOController : Controller
     {
-        private readonly CoreGbMseDbContext _context;
+        private readonly CmsDbContext _context;
 
-        public ITOController(CoreGbMseDbContext context)
+        public ITOController(CmsDbContext context)
         {
             _context = context;
         }
@@ -20,6 +20,19 @@ namespace CoreGbMSE.Controllers
         // GET: ITO Статус пэйдж
         public ActionResult Index()
         {
+            ViewBag.AllTask = _context.TaskWork.ToList().Count;
+
+            ViewBag.AllFinishTask = _context.TaskWork.Where(x => x.Status == Status.Finish).Count();
+
+
+            DateTime dnow = DateTime.Now;
+            DateTime first = new DateTime(dnow.Year, dnow.Month, 1);
+            DateTime last = new DateTime(dnow.Year, dnow.Month + 1, 1).AddDays(-1);
+            ViewBag.CurrentMontAllTask = _context.TaskWork.Where(x => x.DateAdd >= first).Count();
+
+            ViewBag.CurrentMontFinishTask = _context.TaskWork.Where(x => x.DateAdd >= first).Where(z=>z.Status==Status.Finish).Count();
+
+
             return View();
         }
 
@@ -65,11 +78,18 @@ namespace CoreGbMSE.Controllers
             return View(await _context.TaskWork.Where(x => x.TaskWorkId == id).Include(z => z.Otdel).Include(y => y.TaskType).SingleAsync());
         }
 
-        [HttpPost]
-        public IActionResult WorkInTask(TaskWork task)
+        
+        public IActionResult WorkInTask(int id)
         {
+            var tmptask = _context.TaskWork.Where(x => x.TaskWorkId == id).Single();
+            //task.DateFinish = DateTime.Now;
+            tmptask.Status = Status.Working;
 
-            return View();
+            _context.Update(tmptask);
+            _context.SaveChanges();
+
+            return RedirectToAction("ListZayavka");
+            //return View();
         }
 
     }

@@ -6,23 +6,23 @@
 
 
 @*<div class="box">
-    <div class="box-header">
-        <h3 class="box-title">СОСТОЯНИЕ ИТО ОТДЕЛА</h3>
-    </div>
-    <div class="box-body">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">CPU Traffic</span>
-                    <span class="info-box-number">90<small>%</small></span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+        <div class="box-header">
+            <h3 class="box-title">СОСТОЯНИЕ ИТО ОТДЕЛА</h3>
         </div>
-    </div>
-</div>*@
+        <div class="box-body">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">CPU Traffic</span>
+                        <span class="info-box-number">90<small>%</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        </div>
+    </div>*@
 
 
 <div class="row">
@@ -30,11 +30,26 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>150</h3>
-                <p>Заявок с начала месяца</p>
+                <h3>@ViewBag.AllTask</h3>
+                <p>Всего заявок</p>
             </div>
             <div class="icon">
-                <i class="ion ion-alert"></i>
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a class="small-box-footer" href="@Url.Action("ListZayavka","ITO")">Подробно <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3>@ViewBag.AllFinishTask</h3>
+                <p>Выполненно</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
             </div>
             <a class="small-box-footer" href="#">Подробно <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -42,15 +57,64 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-green">
+        <div class="small-box bg-red">
             <div class="inner">
-                <h3>53<sup style="font-size: 20px;">%</sup></h3>
-                <p>Из них выполненно</p>
+                <h3>4</h3>
+                <p>Просрочено</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion  ion-pie-graph"></i>
             </div>
             <a class="small-box-footer" href="#">Подробно <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>@ViewBag.CurrentMontAllTask<sup style="font-size: 20px;"></sup></h3>
+                <p>Долгосрочных</p>
+            </div>
+            <div class="icon">
+                <i class="ion  ion-pie-graph"></i>
+            </div>
+            <a class="small-box-footer" href="#">Подробно <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+
+</div>
+
+<div class="row">
+
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box  bg-aqua">
+            <div class="inner">
+                <h3>@ViewBag.CurrentMontFinishTask<sup style="font-size: 20px;"></sup></h3>
+                <p>С начала месяца</p>
+            </div>
+            <div class="icon">
+                <i class="ion  ion-pie-graph"></i>
+            </div>
+            <a class="small-box-footer" href="#">Подробно <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3>@ViewBag.CurrentMontFinishTask</h3>
+                <p>Выполнено</p>
+            </div>
+            <div class="icon">
+                <i class="ion  ion-pie-graph"></i>
+            </div>
+            <a class="small-box-footer" href="@Url.Action("ListZayavka","ITO")">Подробно <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -77,10 +141,11 @@
                 <p>Из них долгосрочных</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion  ion-pie-graph"></i>
             </div>
             <a class="small-box-footer" href="#">Подробно <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
+
 </div>

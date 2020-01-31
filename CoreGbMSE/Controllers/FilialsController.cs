@@ -10,10 +10,10 @@ namespace CoreGbMSE.Controllers
 
     public class FilialsController : Controller
     {
-        private readonly CoreGbMseDbContext _context;
+        private readonly CmsDbContext _context;
 
 
-        public FilialsController(CoreGbMseDbContext context)
+        public FilialsController(CmsDbContext context)
         {
             _context = context;
         }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using CoreGbMSE.Models;
 using CoreGbMSE.Models.AccountViewModels;
 using CoreGbMSE.Services;
+using WebUI.Models;
 
 namespace CoreGbMSE.Controllers
 {

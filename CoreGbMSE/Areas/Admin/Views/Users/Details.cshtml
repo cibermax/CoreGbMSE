@@ -1,0 +1,122 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model WebUI.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Подробно о пользователе";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">@ViewData["Title"]</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form">
+        <div class="box-body">
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.Id):&nbsp;
+                <label>@Html.DisplayFor(model => model.Id)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.UserName):&nbsp;
+                <label>@Html.DisplayFor(model => model.UserName)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.NormalizedUserName):&nbsp;
+                <label>@Html.DisplayFor(model => model.NormalizedUserName)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.Email):&nbsp;
+                <label>@Html.DisplayFor(model => model.Email)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.NormalizedEmail):&nbsp;
+                <label>@Html.DisplayFor(model => model.NormalizedEmail)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.EmailConfirmed):&nbsp;
+                <label>@Html.DisplayFor(model => model.EmailConfirmed)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.PhoneNumber):&nbsp;
+                <label>@Html.DisplayFor(model => model.PhoneNumber)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.PhoneNumberConfirmed):&nbsp;
+                <label>@Html.DisplayFor(model => model.PhoneNumberConfirmed)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.ConcurrencyStamp):&nbsp;
+                <label>@Html.DisplayFor(model => model.ConcurrencyStamp)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.SecurityStamp):&nbsp;
+                <label>@Html.DisplayFor(model => model.SecurityStamp)</label>
+            </div>
+            @*<div class="form-group">
+                @Html.DisplayNameFor(model => model.TwoFactorEnabled):&nbsp;
+                <label>@Html.DisplayFor(model => model.TwoFactorEnabled)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.LockoutEnabled):&nbsp;
+                <label>@Html.DisplayFor(model => model.LockoutEnabled)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.AccessFailedCount):&nbsp;
+                <label>@Html.DisplayFor(model => model.AccessFailedCount)</label>
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.LockoutEnd):&nbsp;
+                <label>@Html.DisplayFor(model => model.LockoutEnd)</label>
+            </div>*@
+
+
+            <div class="form-group">
+                <label>РОЛИ ПОЛЬЗОВАТЕЛЯ</label>
+                <select id="select2" disabled="disabled" class="form-control select2-hidden-accessible" multiple="multiple" data-placeholder="Роли пользователя" style="width: 100%;">
+                    @{
+
+                        var curroles = (List<IdentityRole>)ViewBag.CurrentRoles;
+
+                        foreach (var role in ViewBag.Roles)
+                        {
+                            if (curroles.Exists(x => x.Name == role.Name))
+                            {
+                                <option selected="selected">@role.Name</option>
+                            }
+                            else
+                            {
+                                <option>@role.Name</option>
+                            }
+
+                        }
+                    }
+
+                </select>
+            </div>
+        </div>
+        <div class="box-footer">
+            <a href="@Url.Action("Index","Users")" class="btn btn-primary pull-right">Назад к списку</a>
+            <a href="@Url.Action("DeleteAsync","Users",new {id = Model.Id })" class="btn btn-primary pull-right  margin-r-5">Удалить</a>
+            @*<a href="@Url.Action("Edit", "Users",new {id = Model.Id })" class="btn btn-primary pull-right margin-r-5">Редактировать</a>*@
+        </div>
+        <!-- /.box-body -->
+    </form>
+</div>
+
+@section Scripts
+    {
+
+    <!-- Select2 -->
+    <script src="~/lte/bower_components/select2/dist/js/select2.full.min.js"></script>
+
+    <script>
+
+        $(function () {
+            //Initialize Select2 Elements
+            $('#select2').select2();
+        });
+    </script>
+}

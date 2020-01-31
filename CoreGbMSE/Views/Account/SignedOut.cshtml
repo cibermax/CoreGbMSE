@@ -1,8 +1,22 @@
 ﻿@{
-    ViewData["Title"] = "Выход";
+    ViewData["Title"] = "Signed out";
+    Layout = "_LayoutNoMenu";
 }
 
-<h2>@ViewData["Title"]</h2>
-<p>
-    Вы успешно вышли из системы.
-</p>
+<div class="borderbox">
+    <div class="headbox text-center">
+        <h2>@ViewData["Title"]</h2>
+    </div>
+
+    <div class="formbox">
+        <section>
+            <h4>Выход из аккаунта выполнен.</h4>
+            <form asp-action="Login" asp-controller="Account">
+                <input type="submit" value="Войти" style="margin-top: 25px;" class="btn btn-default" />
+            </form>
+            <form asp-action="Index" asp-controller="Home">
+                <input type="submit" value="На главную" style="margin-top: 15px;" class="btn btn-default" />
+            </form>
+        </section>
+    </div>
+</div>

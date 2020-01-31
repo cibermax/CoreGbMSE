@@ -1,9 +1,27 @@
 ﻿@model LoginWith2faViewModel
 @{
     ViewData["Title"] = "Two-factor authentication";
+    Layout = "_LayoutNoMenu";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="borderbox">
+            <div class="headbox">
+                <img src="~/img/logo/logo-circle-nobg.png" class="img-responsive" />
+                <div class="header-holder text-center">
+                    <h2>@ViewData["Title"]</h2>
+                </div>
+            </div>
+
+            <div class="formbox">
+                <h4>Your login is protected with an authenticator app. Enter your authenticator code below.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h2>@ViewData["Title"]</h2>
 <hr />
 <p>Your login is protected with an authenticator app. Enter your authenticator code below.</p>
 <div class="row">
@@ -33,7 +51,7 @@
 <p>
     Don't have access to your authenticator device? You can 
     <a asp-action="LoginWithRecoveryCode" asp-route-returnUrl="@ViewData["ReturnUrl"]">log in with a recovery code</a>.
-</p>
+</p>*@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")

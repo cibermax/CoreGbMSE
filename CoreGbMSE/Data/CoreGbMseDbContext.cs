@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoreGbMSE.Data
 {
-    public class CoreGbMseDbContext : DbContext
+    public class CmsDbContext : DbContext
     {
-        public CoreGbMseDbContext(DbContextOptions<CoreGbMseDbContext> options):base(options)
+        public CmsDbContext(DbContextOptions<CmsDbContext> options):base(options)
         {
         }
 
